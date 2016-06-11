@@ -58,4 +58,11 @@ def display( screen ):
     save_ppm( screen, ppm_name )
     Popen( ['display', ppm_name], stdin=PIPE, stdout = PIPE )
 
-
+def z_buffer( width = XRES, height = YRES ):
+    z = []
+    for y in range ( height ):
+        row = []
+        z.append(row)
+        for x in range(width):
+            z[y].append(MIN_VALUE)
+    return z
