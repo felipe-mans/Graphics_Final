@@ -1,5 +1,6 @@
 from subprocess import Popen, PIPE
 from os import remove
+import sys
 
 #constants
 XRES = 500
@@ -10,6 +11,7 @@ GREEN = 1
 BLUE = 2
 
 DEFAULT_COLOR = [0, 0, 0]
+MIN_VALUE = -sys.maxint-1
 
 def new_screen( width = XRES, height = YRES ):
     screen = []
