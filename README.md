@@ -1,3 +1,3 @@
-Graphics Final
+#Graphics Final Project
 
-Members: Felipe Mansilla + Greg Redozubov
+## Members: Felipe Mansilla and Greg Redozubov
