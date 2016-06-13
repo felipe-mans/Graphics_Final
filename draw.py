@@ -2,7 +2,7 @@ from display import *
 from matrix import *
 from gmath import calculate_dot
 from math import cos, sin, pi
-from shading import *
+from shades import *
 
 MAX_STEPS = 100
 colors = [
