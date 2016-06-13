@@ -1,5 +1,6 @@
-example: example.mdl lex.py main.py matrix.py mdl.py screen.py script.py vector.py yacc.py
-	python main.py example.mdl
+file = cool.mdl
+make: $(file) lex.py main.py matrix.py mdl.py script.py yacc.py
+	python main.py $(file)
 
 clean:
 	rm *pyc *out parsetab.py
