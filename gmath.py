@@ -27,7 +27,8 @@ def calculate_dot(points, i, vector=[0, 0, -1], normalize=False):
     dot = normal[0] * vx + normal[1] * vy + normal[2] * vz
 
     if normalize:
-        dot = dot / (magnitude(normal) * magnitude(vector))
+        if magnitude(normal) * magnitude(vector) != 0:
+            dot = dot / (magnitude(normal) * magnitude(vector))
     return dot
 
 

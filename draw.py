@@ -69,11 +69,11 @@ def draw_flat_polygons(points, screen, z_buffer, color_properties=[0.30, 0.50, 0
                 if points[p + i + 1][1] < points[p + bottom][1]:
                     bottom = i + 1
             middle = 3 - top - bottom
-            center = center(points[p:p+3])
-            ambient = ambient(ambient_light, color_properties[0])
-            diffuse = diffuse(point_lights, color_properties[1], center, points[p:p+3])
-            specular = return_specular(point_lights, color_properties[2], center, points[p:p+3], [0, 0, -1])
-            color = return_color(ambient, diffuse, specular)
+            cen = center(points[p:p+3])
+            amb = ambient(ambient_light, color_properties[0])
+            diff = diffuse(point_lights, color_properties[1], cen, points[p:p+3])
+            specular = return_specular(point_lights, color_properties[2], cen, points[p:p+3], [0, 0, -1])
+            color = return_color(amb, diff, specular)
             scanline_conversion(screen,
                                 points[p+top][0], points[p+top][1], points[p+top][2],
                                 points[p+middle][0], points[p+middle][1], points[p+middle][2],

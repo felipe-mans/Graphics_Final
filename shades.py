@@ -6,14 +6,14 @@ def center(three):
     for x in range(3):
         for y in range(3):
             c[x] += three[y][x]
-            c[x] = center[x] / 3
-    return cr
+            c[x] = c[x] / 3
+    return c
 
 
 def ambient(light, prop):
     ambient_shade = [0, 0, 0]
     for i in range(3):
-        ambient_shade[i] = light[i] * ambient_prop
+        ambient_shade[i] = light[i] * prop
     return ambient_shade
 
     
@@ -35,14 +35,14 @@ def diffuse(light, properties, center, points):
     return diffuse
 
 
-def return_specular(point_lights, specular_properties, center, points, v_vector=[0, 0, -1]):
+def return_specular(point_lights, specular_properties, cen, points, v_vector=[0, 0, -1]):
     specular = [0, 0, 0]
     for i in range(3):
         total_light = 0
         for light in point_lights:
-            l_vector = [light[0] - center[0],
-                        light[1] - center[1],
-                        light[2] - center[2]]
+            l_vector = [light[0] - cen[0],
+                        light[1] - cen[1],
+                        light[2] - cen[2]]
             l_norm = normalize(l_vector)
             n_vector = get_normal(points)
             n_norm = normalize(n_vector)
@@ -62,7 +62,6 @@ def return_specular(point_lights, specular_properties, center, points, v_vector=
 
 def return_color(ambient, diffuse, specular):
     color = [0, 0, 0]
-    #print ambient, diffuse, specular
     for i in range(3):
         color[i] = int(ambient[i] + diffuse[i] + specular[i])
         if color[i] < 0:
