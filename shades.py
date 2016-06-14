@@ -1,34 +1,34 @@
 from gmath import *
 
 
-def return_center(triplet):
-    center = [0, 0, 0]
+def center(three):
+    c = [0, 0, 0]
     for x in range(3):
         for y in range(3):
-            center[x] += triplet[y][x]
-            center[x] = center[x] / 3
-    return center
+            c[x] += three[y][x]
+            c[x] = center[x] / 3
+    return cr
 
 
-def return_ambient(ambient_light, ambient_properties):
-    ambient = [0, 0, 0]
+def ambient(light, prop):
+    ambient_shade = [0, 0, 0]
     for i in range(3):
-        ambient[i] = ambient_light[i] * ambient_properties
-    return ambient
+        ambient_shade[i] = light[i] * ambient_prop
+    return ambient_shade
 
     
-def return_diffuse(point_lights, diffuse_properties, center, points):
+def diffuse(light, properties, center, points):
     diffuse = [0, 0, 0]
     for i in range(3):
         total_light = 0
-        for light in point_lights:
-            view_vector = [light[0] - center[0],
-                           light[1] - center[1],
-                           light[2] - center[2]]
-            cos = calculate_dot(points, 0, view_vector, True)
+        for x in light:
+            vector = [x[0] - x[0],
+                      x[1] - x[1],
+                      x[2] - x[2]]
+            cos = calculate_dot(points, 0, vector, True)
             if cos < 0:
                 cos = 0
-            total_light += light[3 + i] * diffuse_properties * cos
+            total_light += x[3 + i] * properties * cos
         if total_light < 0:
             total_light = 0
         diffuse[i] = total_light
