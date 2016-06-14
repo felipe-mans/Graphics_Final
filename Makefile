@@ -6,6 +6,8 @@ make: $(file) lex.py main.py matrix.py mdl.py script.py yacc.py
 
 clean:
 	rm *pyc *out parsetab.py
+	rm ./anim/*
 
 clear:
 	rm *pyc *out parsetab.py *ppm
+
